@@ -35,6 +35,8 @@ test:
 # FIXME : maps should be defined in the yaml and managed via the python script
     - echo '<map type="binfile" data="~/maps/western_europe.bin" />' > maps/western_europe.xml:
         pwd: bin/navit/
+    - echo '<map type="binfile" data="~/maps/north-america_rte.bin" />' > maps/north-america_rte.xml:
+        pwd: bin/navit/
     - ./navit:
         pwd: bin/navit/
         background: true
