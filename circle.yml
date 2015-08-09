@@ -15,7 +15,7 @@ dependencies:
     - sudo apt-get install g++
     - sudo pip install pyyaml
     - sudo pip install junit-xml
-    - git clone https://github.com/navit-gps/navit.git
+    - git clone https://github.com/jandegr/navit.git
     - git checkout $CIRCLE_BRANCH:
         pwd: navit/
     - mkdir bin
