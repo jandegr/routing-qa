@@ -1,8 +1,11 @@
+machine:
+  timezone:
+    Europe/Brussels
 dependencies:
   pre:
     - "[ -d ~/maps ] || mkdir ~/maps"
-    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/21/artifacts/0/tmp/circle-artifacts.KMF2dcu/western_europe.bin
-    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/17/artifacts/0/tmp/circle-artifacts.6dwSmER/north-america_rte.bin
+    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/31/artifacts/0/tmp/circle-artifacts.SfW8WTl/western_europe.bin
+    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/32/artifacts/0/tmp/circle-artifacts.Nam98RN/north-america_rte.bin
     - sudo apt-get install cmake
     - sudo apt-get install libpng12-dev 
     - sudo apt-get install libgtk2.0-dev 
