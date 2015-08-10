@@ -52,7 +52,7 @@ for filename in glob.glob('*.yaml'):
         navit.set_position("geo: "+str(dataMap['from']['lng']) + " " + str(dataMap['from']['lat']))
         navit.set_destination("geo: "+str(dataMap['to']['lng']) + " " + str(dataMap['to']['lat']),"python dbus")
         # FIXME : we should listen to a dbus signal notifying that the routing is complete instead
-        timeout=30
+        timeout=40
         status=-1
         while timeout>0 and ( status!=33 and status!=17):
             try:
