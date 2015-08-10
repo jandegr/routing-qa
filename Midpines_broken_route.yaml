@@ -4,8 +4,8 @@ from:
   lat: 37.831791
   lng: -122.285998
 to:
-  lat: 37.817952
-  lng: -119.516403
+  lat: 37.738737
+  lng: -119.576024
 
 success:
     source: 'dbus'
