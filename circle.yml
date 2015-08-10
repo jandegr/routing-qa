@@ -19,7 +19,7 @@ dependencies:
     - git checkout $CIRCLE_BRANCH:
         pwd: navit/
     - mkdir bin
-    - cmake ../navit -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
+    - cmake ../navit -DSAMPLE_MAP=n -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
         pwd: bin
     - make -j32:
         pwd: bin
