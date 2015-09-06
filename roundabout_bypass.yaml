@@ -8,5 +8,5 @@ to:
 success:
     source: 'dbus'
     item: 'distance'
-    value: 340
+    value: 330
     operator: '<'
