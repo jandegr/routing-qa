@@ -8,6 +8,6 @@ to:
     lng: 2.034392
 success:
     source: 'dbus'
-    item: 'status'
-    value: 33
-    operator: '=='
+    item: 'distance'
+    value: 600
+    operator: '<'
