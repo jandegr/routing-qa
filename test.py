@@ -55,7 +55,7 @@ for filename in glob.glob('*.yaml'):
         # FIXME : we should listen to a dbus signal notifying that the routing is complete instead
         timeout=120
         status=-1
-        while timeout>0 and ( status!=33 ):
+        while timeout>0 and ( status!=33 and status!=17 ):
             try:
                status=route.get_attr("route_status")[1]
                distance=route.get_attr("destination_length")[1]
