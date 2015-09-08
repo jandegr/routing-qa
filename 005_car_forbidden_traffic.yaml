@@ -10,4 +10,4 @@ success:
     source: 'gpx'
     item: 'nodes'
     value: 0
-    operator: '<'
+    operator: '=='
