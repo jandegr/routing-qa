@@ -5,7 +5,7 @@ dependencies:
   pre:
     - "[ -d ~/maps ] || mkdir ~/maps"
     - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/101/artifacts/0/tmp/circle-artifacts.vJIAH4U/western_europe.bin
-    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/140/artifacts/0/tmp/circle-artifacts.zzAQR0a/north-america_rte.bin
+    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/144/artifacts/0/tmp/circle-artifacts.wodqdxq/north-america_rte.bin
     - sudo apt-get install cmake
     - sudo apt-get install libpng12-dev 
   #  - sudo apt-get install libgtk2.0-dev 
