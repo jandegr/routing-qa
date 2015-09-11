@@ -3,8 +3,8 @@ from:
   lat: 37.8386
   lng: -122.2944
 to:
-  lat: 37.8216
-  lng: -122.3315
+  lat: 37.82179
+  lng: -122.33151
 
 success:
     source: 'dbus'
