@@ -1,4 +1,5 @@
-# don't use HOV road
+# go left on Bryant street
+# to the right is HOV only
 from:
   lat: 37.78644
   lng: -122.38992
@@ -8,6 +9,6 @@ to:
 
 success:
     source: 'dbus'
-    item: 'status'
-    value: 16
+    item: 'distance'
+    value: 3985
     operator: '>'
