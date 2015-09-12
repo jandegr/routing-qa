@@ -1,0 +1,13 @@
+# the instruction must be keep left
+from:
+  lat: 51.0371821
+  lng: 3.6198808
+to:
+  lat: 51.0382514
+  lng: 3.6218334
+
+success:
+    source: 'dbus'
+    item: 'status'
+    value: 17
+    operator: '>'
