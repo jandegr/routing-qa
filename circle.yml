@@ -18,6 +18,7 @@ dependencies:
     - git clone https://github.com/jandegr/navit.git
     - git checkout $CIRCLE_BRANCH:
         pwd: navit/
+    - git log -n 3
     - mkdir bin
     - cmake ../navit -DSAMPLE_MAP=n -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
         pwd: bin
