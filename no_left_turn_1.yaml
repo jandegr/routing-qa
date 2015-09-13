@@ -1,0 +1,13 @@
+# no left turn (multiple from memebers)
+from:
+  lat: 45.42217
+  lng: 4.39218
+to:
+  lat: 45.42331
+  lng: 4.39135
+
+success:
+    source: 'dbus'
+    item: 'distance'
+    value: 230
+    operator: '>'
