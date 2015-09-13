@@ -1,0 +1,12 @@
+# only turn onto Bruvegen is allowed
+from:
+  lat: 69.65412
+  lng: 18.96355
+to:
+  lat: 69.65469
+  lng: 18.96385
+success:
+    source: 'dbus'
+    item: 'distance'
+    value: 150
+    operator: '>'
