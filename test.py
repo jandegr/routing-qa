@@ -91,10 +91,14 @@ for filename in glob.glob('*.yaml'):
             if not(eval(str(rtept_count) + dataMap['success']['operator'] + str(dataMap['success']['value']))):
                 test_cases.add_failure_info('navigation items count mismatch [ got ' + \
                     str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value']) ) 
+                print "navigation items count mismatch [ got " + \
+                    str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value'])
         elif dataMap['success']['source'] == 'dbus' :
             if not(eval(dataMap['success']['item'] + dataMap['success']['operator'] + str(dataMap['success']['value']))):
                 test_cases.add_failure_info('dbus result mismatch [ got ' + \
                     str(eval(str(dataMap['success']['item']))) + dataMap['success']['operator'] + str(dataMap['success']['value']) )
+                print "dbus result mismatch [ got " + \
+                    str(eval(str(dataMap['success']['item']))) + dataMap['success']['operator'] + str(dataMap['success']['value'])
     except:
        # We had a failure, like navit crash, dbus timeout, ...
 
