@@ -79,6 +79,7 @@ for filename in glob.glob('*.yaml'):
                  navit.set_center_by_string("geo: "+str(dataMap['capture']['lng']) + " " + str(dataMap['capture']['lat']))
             else:
                 navit.zoom_to_route()
+            time.sleep(0.5)    
             os.system("/usr/bin/import -window root "+gpx_directory+"/"+filename+export_suffix + ".png")
         else:
             print "No route found, last status : " + str(status) + ", duration : "+str(time.time() - start_time)
