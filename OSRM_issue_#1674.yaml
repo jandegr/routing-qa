@@ -1,10 +1,10 @@
 # 
 from:
   lat: 50.9033013
-  lng: 20.5742795
+  lng: 20.5911882
 to:
-  lat: 50.906603
-  lng: 20.5794294
+  lat: 50.9076719
+  lng: 20.5742795
 success:
     source: 'dbus'
     item: 'status'
