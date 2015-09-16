@@ -2,11 +2,11 @@
 # ramps and A40 have the same maxspeed
 # the route over the ramps is a tiny bit shorter
 from:
-  lat: 51.4365865
-  lng: 20.5911882
+  lat: 51.436665
+  lng: 6.754817
 to:
-  lat: 50.9076719
-  lng: 20.5742795
+  lat: 51.435616
+  lng: 6.737384
 success:
     source: 'dbus'
     item: 'status'
