@@ -57,7 +57,7 @@ for filename in glob.glob('*.yaml'):
         # FIXME : we should listen to a dbus signal notifying that the routing is complete instead
         timeout=50
         status=-1
-        while timeout>0 and ( status!=33 and status!=17 ):
+        while timeout>0 and ( status!=33 ):
             try:
                status=route.get_attr("route_status")[1]
                distance=route.get_attr("destination_length")[1]
@@ -103,8 +103,6 @@ for filename in glob.glob('*.yaml'):
     tests.append(test_cases)
 
 ts = [TestSuite("Navit routing tests", tests)]
-
-print(TestSuite.to_xml_string([ts]))
 
 with open(junit_directory+'output.xml', 'w+') as f:
     TestSuite.to_file(f, ts, prettyprint=False)
