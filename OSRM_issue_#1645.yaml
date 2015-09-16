@@ -1,4 +1,5 @@
-# 
+# dupl. of graphhopper issue #511
+# stay on the main road
 from:
   lat: 52.7086218
   lng: 5.8629592
