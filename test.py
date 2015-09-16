@@ -46,6 +46,7 @@ for filename in glob.glob('*.yaml'):
     f.close()
     print "Testing "+filename+" : "+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +" to "+str(dataMap['to']['lat']) + "," + str(dataMap['to']['lng'])
     print "http://www.openstreetmap.org/directions?engine=osrm_car&route="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"%3B"+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng'])
+    print "https://graphhopper.com/maps/?point="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"&point="+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng'])
     print "http://www.google.com/maps/dir/"+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +"/"+str(dataMap['to']['lat']) + ","+ str(dataMap['to']['lng'])
     start_time = time.time()
     try:
