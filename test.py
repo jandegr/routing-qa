@@ -62,6 +62,7 @@ for filename in glob.glob('*.yaml'):
                status=route.get_attr("route_status")[1]
                distance=route.get_attr("destination_length")[1]
                print "Route status : "+str(status)+", distance : "+str(distance)+ ", duration : "+str(time.time() - start_time)
+               time.sleep(1)
             except:
                time.sleep(1)
             timeout-=1
