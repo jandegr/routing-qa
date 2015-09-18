@@ -1,0 +1,12 @@
+# 
+from:
+  lat: 51.41513
+  lng: 6.50184
+to:
+  lat: 51.41437
+  lng: 6.50097
+success:
+    source: 'dbus'
+    item: 'status'
+    value: 16
+    operator: '>'
