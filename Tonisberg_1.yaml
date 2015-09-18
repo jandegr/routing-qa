@@ -1,4 +1,4 @@
-# 
+# no need to make a detour
 from:
   lat: 51.41513
   lng: 6.50184
@@ -7,6 +7,6 @@ to:
   lng: 6.50097
 success:
     source: 'dbus'
-    item: 'status'
-    value: 16
-    operator: '>'
+    item: 'distance'
+    value: 200
+    operator: '<'
