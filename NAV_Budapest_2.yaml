@@ -1,0 +1,13 @@
+# a keep left maneuvre is required
+from:
+  lat: 47.53916
+  lng: 19.04749
+to:
+  lat: 47.53976
+  lng: 19.04487
+
+success:
+    source: 'dbus'
+    item: 'status'
+    value: 33
+    operator: '=='
