@@ -8,7 +8,6 @@ dependencies:
     - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/163/artifacts/0/tmp/circle-artifacts.FuHJFtU/north-america_rte.bin
     - sudo apt-get install cmake
     - sudo apt-get install libpng12-dev 
-  #  - sudo apt-get install libgtk2.0-dev 
     - sudo apt-get install librsvg2-bin 
     - sudo apt-get install libfreetype6-dev
     - sudo apt-get install libdbus-glib-1-dev
