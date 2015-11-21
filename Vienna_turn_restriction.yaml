@@ -1,10 +1,10 @@
 # Make a loop to handle turn restriction
 from:
-  lat: 48.211632
-  lng: 16.372225
+  lat: 48.21263
+  lng: 16.37070
 to:
-  lat: 48.211697
-  lng: 16.372553
+  lat: 48.21186
+  lng: 16.37276
 success:
     source: 'dbus'
     item: 'status'
