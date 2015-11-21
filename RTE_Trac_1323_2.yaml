@@ -1,10 +1,10 @@
 # see trac #1323
 from:
-  lat: 53.22372
-  lng: 23.15564
+  lat: 53.21890
+  lng: 23.15844
 to:
-  lat: 53.22520
-  lng: 53.22520, 23.15502
+  lat: 53.21716
+  lng: 23.15367
 
 success:
     source: 'dbus'
