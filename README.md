@@ -4,4 +4,4 @@ ext_graph alpha testing
 
 
 
-https://circleci.com/gh/jandegr/routing-qa/tree/ext_graph_prep.svg?style=svg
+[![Circle CI](https://circleci.com/gh/jandegr/routing-qa.svg?style=svg)](https://circleci.com/gh/jandegr/routing-qa)
