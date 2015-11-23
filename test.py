@@ -32,6 +32,7 @@ route = dbus.Interface(route_object, 'org.navit_project.navit.route')
 gpx_directory=sys.argv[1]
 if not os.path.exists(gpx_directory):
     os.makedirs(gpx_directory)
+print "gpx_directory = "+gpx_directory
 
 junit_directory=sys.argv[2]
 if not os.path.exists(junit_directory):
