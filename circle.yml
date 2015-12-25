@@ -7,7 +7,7 @@ dependencies:
 #    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/31/artifacts/0/tmp/circle-artifacts.SfW8WTl/western_europe.bin
 #    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/233/artifacts/0/tmp/circle-artifacts.DFHr9CJ/western_europe.bin
     - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/259/artifacts/0/tmp/circle-artifacts.nGxDmf0/western_europe.bin
-    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/163/artifacts/0/tmp/circle-artifacts.FuHJFtU/north-america_rte.bin
+    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/264/artifacts/0/tmp/circle-artifacts.uXPeTnv/north-america_rte.bin
     - sudo apt-get install cmake
     - sudo apt-get install libpng12-dev 
     - sudo apt-get install librsvg2-bin 
