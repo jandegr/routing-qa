@@ -1,0 +1,13 @@
+# see trac #1323
+from:
+  lat: 53.21890
+  lng: 23.15844
+to:
+  lat: 53.21716
+  lng: 23.15367
+
+success:
+    source: 'dbus'
+    item: 'status'
+    value: 17
+    operator: '>='
