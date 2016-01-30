@@ -4,7 +4,8 @@ machine:
 dependencies:
   pre:
     - "[ -d ~/maps ] || mkdir ~/maps"
-    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/263/artifacts/0/tmp/circle-artifacts.VUB8X04/western_europe.bin
+#    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/263/artifacts/0/tmp/circle-artifacts.VUB8X04/western_europe.bin
+    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/341/artifacts/0/tmp/circle-artifacts.NEaW8HE/western_europe.bin
     - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/264/artifacts/0/tmp/circle-artifacts.uXPeTnv/north-america_rte.bin
     - sudo apt-get update
     - sudo apt-get install cmake
