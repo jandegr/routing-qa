@@ -6,7 +6,7 @@ dependencies:
     - "[ -d ~/maps ] || mkdir ~/maps"
 #    - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/263/artifacts/0/tmp/circle-artifacts.VUB8X04/western_europe.bin
     - wget -c -O ~/maps/western_europe.bin https://circle-artifacts.com/gh/jandegr/navit/341/artifacts/0/tmp/circle-artifacts.NEaW8HE/western_europe.bin
-    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/342/artifacts/0/tmp/circle-artifacts.sCnrIGR/north-america_rte.bin
+    - wget -c -O ~/maps/north-america_rte.bin https://circle-artifacts.com/gh/jandegr/navit/343/artifacts/0/tmp/circle-artifacts.Vz9WlWl/north-america_rte.bin
     - sudo apt-get update
     - sudo apt-get install cmake
     - sudo apt-get install libpng12-dev 
