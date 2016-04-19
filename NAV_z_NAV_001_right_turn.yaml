@@ -1,0 +1,13 @@
+# a right turn announced as left in zanavi
+
+from:
+  lat: 48.25142
+  lng: 16.42974
+to:
+  lat: 48.25328
+  lng: 16.42773
+success:
+    source: 'dbus'
+    item: 'status'
+    value: 33
+    operator: '=='
