@@ -1,0 +1,13 @@
+# just some test
+from:
+  lat: 51.6496
+  lng: 5.0390
+to:
+  lat: 51.6498
+  lng: 5.0546
+
+success:
+    source: 'dbus'
+    item: 'status'
+    value: 33
+operator: '=='
