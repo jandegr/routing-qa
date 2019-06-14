@@ -18,9 +18,9 @@ jobs:
       - run:
           name: Build for Linux
           command: |
-            git clone https://github.com/jandegr/navit.git
-            ls -la
+            git clone https://github.com/jandegr/navit.git     
             cd navit
+            ls -la
             mkdir bin
             cd bin
             cmake ../navit -DSAMPLE_MAP=n -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
