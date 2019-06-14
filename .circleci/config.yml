@@ -25,6 +25,8 @@ jobs:
             cd bin
             cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
             make -j2
+            ls -la
+            ls -la navit
 workflows:
   version: 2
   build_all:
