@@ -14,7 +14,8 @@ jobs:
           name: Setup requirements
           command: |
             apt-get update
-            apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev pyyaml junit-xml
+            apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev 
+            pip install pyyaml junit-xml
       - run:
           name: Build for Linux
           command: |
@@ -30,13 +31,13 @@ jobs:
       - run:
          name: Prepare Navit for tests
          command: |
-           cd navit/bin//navit
+           cd navit/bin/navit
            ls -la
            sed -i -e 's@name="Local GPS" profilename="car" enabled="yes" active="1"@name="Local GPS" profilename="car" enabled="no" active="0"@' navit.xml
            sed -i -e 's@name="Demo" profilename="car" enabled="no" active="yes"@name="Demo" profilename="car" enabled="yes" active="yes" refresh="1"@' navit.xml
            sed -i -e 's@type="internal" enabled@type="internal" fullscreen="1" font_size="350" enabled@' navit.xml
            sed -i -e 's@libbinding_dbus.so" active="no"@libbinding_dbus.so" active="yes"@' navit.xml
-           sed -i -e 's@name="Car" nightlayout="Car-dark"@name="Car"@' navit.xml:
+           sed -i -e 's@name="Car" nightlayout="Car-dark"@name="Car"@' navit.xml
       - run:
          name: Start Navit
          command: ./navit
