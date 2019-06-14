@@ -49,7 +49,7 @@ jobs:
           name: get map BFR
           command: |
             mkdir ~/maps
-            echo '<map type="binfile" data="~/maps/BFR.bin" />' > maps/BFR.xml
+            echo '<map type="binfile" data="~/maps/BFR.bin" />' > ~/maps/BFR.xml
             wget -c -O ~/maps/BFR.bin https://3572-34103839-gh.circle-artifacts.com/0/root/project/BFR.bin
       - run:
          name: Start Navit
