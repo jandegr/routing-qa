@@ -19,7 +19,8 @@ jobs:
       - run:
           name: Build for Linux
           command: |
-            git clone https://github.com/jandegr/navit.git     
+            git clone https://github.com/jandegr/navit.git
+            git branch -a
             cd navit
             ls -la
             mkdir bin
