@@ -4,6 +4,7 @@ defaults: &defaults
     - image: ubuntu:19.04
 jobs:
   build_linux:
+    <<: *defaults
     steps:
       - checkout
       - run:
