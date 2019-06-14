@@ -20,8 +20,9 @@ jobs:
           name: Build for Linux
           command: |
             git clone https://github.com/jandegr/navit.git
-            git branch -a
             cd navit
+            git branch -a
+            git checkout trunk
             ls -la
             mkdir bin
             cd bin
