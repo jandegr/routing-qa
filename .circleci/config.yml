@@ -40,7 +40,9 @@ jobs:
            sed -i -e 's@name="Car" nightlayout="Car-dark"@name="Car"@' navit.xml
       - run:
          name: Start Navit
-         command: ./navit
+         command: |
+           cd navit/bin/navit
+           ./navit
          background: true
       - run:
          name: Perform tests
