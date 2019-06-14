@@ -19,12 +19,11 @@ jobs:
           name: Build for Linux
           command: |
             git clone https://github.com/jandegr/navit.git
-            pwd: navit/
+            cd navit
             mkdir bin
+            cd bin
             cmake ../navit -DSAMPLE_MAP=n -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
-            pwd: bin
-            make -j2:
-            pwd: bin
+            make -j2
 workflows:
   version: 2
   build_all:
