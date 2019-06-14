@@ -23,7 +23,7 @@ jobs:
             ls -la
             mkdir bin
             cd bin
-            cmake ../navit -DSAMPLE_MAP=n -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
+            cmake ../ -DSAMPLE_MAP=n -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
             make -j2
 workflows:
   version: 2
