@@ -1,4 +1,5 @@
 version: 2
+defaults: &defaults
   docker:
     - image: ubuntu:19.04
 jobs:
