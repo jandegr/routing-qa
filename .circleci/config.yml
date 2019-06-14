@@ -19,7 +19,7 @@ jobs:
           name: Build for Linux
           command: |
             git clone https://github.com/jandegr/navit.git
-            git checkout settings:
+            git checkout settings
             pwd: navit/
             mkdir bin
             cmake ../navit -DSAMPLE_MAP=n -Dgraphics/qt_qpainter:BOOL=FALSE -Dgui/qml:BOOL=FALSE:
