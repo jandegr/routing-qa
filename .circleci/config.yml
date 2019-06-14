@@ -30,7 +30,7 @@ jobs:
       - run:
          name: Prepare Navit for tests
          command: |
-           cd navit/navit
+           cd navit/bin//navit
            ls -la
            sed -i -e 's@name="Local GPS" profilename="car" enabled="yes" active="1"@name="Local GPS" profilename="car" enabled="no" active="0"@' navit.xml
            sed -i -e 's@name="Demo" profilename="car" enabled="no" active="yes"@name="Demo" profilename="car" enabled="yes" active="yes" refresh="1"@' navit.xml
