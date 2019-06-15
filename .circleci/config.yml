@@ -62,9 +62,10 @@ jobs:
       - run:
          name: Start Navit
          command: |
+           sleep 5
            cd navit/bin/navit
            #Xvfb
-           xvfb-run ./navit
+           #xvfb-run ./navit
            ./navit
          # background: true  
       - run:
