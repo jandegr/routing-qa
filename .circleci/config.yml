@@ -57,8 +57,7 @@ jobs:
          name: Start Navit
          command: |
            cd navit/bin/navit
-           # xvfb-run ./navit
-           ./navit
+           xvfb-run ./navit
          background: true  
       - run:
          name: Perform tests
