@@ -54,10 +54,15 @@ jobs:
             echo '<map type="binfile" data="maps/BFR.bin" />' > maps/BFR.xml
             wget -c -O maps/BFR.bin https://3572-34103839-gh.circle-artifacts.com/0/root/project/BFR.bin
       - run:
+          name: Running X virtual framebuffer
+          command: Xvfb -ac :99 -screen 0 1280x1024x16
+          export DISPLAY=:99
+          background: true
+      - run:
          name: Start Navit
          command: |
            cd navit/bin/navit
-           Xvfb
+           #Xvfb
            #xvfb-run ./navit
            ./navit
          # background: true  
