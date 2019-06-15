@@ -57,11 +57,11 @@ jobs:
           name: Running X virtual framebuffer
           command: |
             Xvfb -ac :99 -screen 0 1280x1024x16
-            export DISPLAY=:99
           background: true
       - run:
          name: Start Navit
          command: |
+           export DISPLAY=:99
            sleep 5
            cd navit/bin/navit
            #Xvfb
