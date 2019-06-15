@@ -56,7 +56,7 @@ jobs:
          command: |
            mkdir $CIRCLE_ARTIFACTS/logs
            cd navit/bin/navit
-           ./navit >$CIRCLE_ARTIFACTS/logs/stdout.txt 2>$CIRCLE_ARTIFACTS/logs/stderr.txt
+           ./navit
            cat $CIRCLE_ARTIFACTS/logs/stdout.txt
            cat $CIRCLE_ARTIFACTS/logs/stderr.txt
            ls -la $CIRCLE_ARTIFACTS/logs
