@@ -15,7 +15,7 @@ jobs:
           command: |
             apt-get update
             apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev librsvg2-bin wget xvfb
-            apt-get install -y python-yaml python-junit.xml python-dbus python-lxml python-gobject
+            apt-get install -y dbus python-yaml python-junit.xml python-dbus python-lxml python-gobject
       - run:
           name: Build for Linux
           command: |
