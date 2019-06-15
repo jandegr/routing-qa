@@ -60,7 +60,7 @@ jobs:
            Xvfb
            #xvfb-run ./navit
            ./navit
-         background: true  
+         # background: true  
       - run:
          name: Perform tests
          command: python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
