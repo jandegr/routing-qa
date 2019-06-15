@@ -43,6 +43,7 @@ jobs:
             sed -i -e 's@libbinding_dbus.so" active="no"@libbinding_dbus.so" active="yes"@' navit.xml
             sed -i -e 's@name="Car" nightlayout="Car-dark"@name="Car"@' navit.xml  
             # sed -i -e 's@name="global" dbg_level="error"@name="global" dbg_level="debug"@' navit.xml
+            echo 'navit.mapset.map[@description=="Navigation"].active=1;' > gui_internal.txt
       - run:
           name: Launch dbus
           command: /usr/bin/dbus-launch
@@ -61,7 +62,7 @@ jobs:
       - run:
           name: Running X virtual framebuffer
           command: |
-            Xvfb -ac :99 -screen 0 1280x1024x16
+            Xvfb -ac :99 -screen 0 1600x1200x16
           background: true
       - run:
          name: Start Navit
