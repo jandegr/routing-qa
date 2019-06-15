@@ -43,7 +43,7 @@ jobs:
             sed -i -e 's@name="global" dbg_level="error"@name="global" dbg_level="debug"@' navit.xml
       - run:
           name: Launch dbus
-            command: /usr/bin/dbus-launch circleci
+          command: /usr/bin/dbus-launch circleci
       - run:
           name: Navit xml
           command: |
