@@ -60,7 +60,6 @@ jobs:
            cat $CIRCLE_ARTIFACTS/logs/stdout.txt
            cat $CIRCLE_ARTIFACTS/logs/stderr.txt
            ls -la $CIRCLE_ARTIFACTS/logs
-         background: true
       - run:
          name: Perform tests
          command: python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
