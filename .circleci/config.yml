@@ -74,7 +74,7 @@ jobs:
       - run:
          name: Perform tests
          command: |
-            sleep 5
+           sleep 5
            export DISPLAY=:99
            python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
       - run:
