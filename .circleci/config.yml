@@ -73,7 +73,9 @@ jobs:
          background: true  
       - run:
          name: Perform tests
-         command: python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
+         command: |
+           export DISPLAY=:99
+           python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
       - run:
          name: Stop Navit
          command: dbus-send  --print-reply --session --dest=org.navit_project.navit /org/navit_project/navit/default_navit org.navit_project.navit.navit.quit
