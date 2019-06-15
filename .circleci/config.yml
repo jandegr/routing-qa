@@ -28,7 +28,7 @@ jobs:
             ls -la
             mkdir bin
             cd bin
-            cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n -DUSE_PLUGINS=0
+            cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
             make -j2
             ls -la
             ls -la navit   
