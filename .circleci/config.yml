@@ -57,11 +57,11 @@ jobs:
           command: |
             cd navit/bin/navit
             # mkdir maps
-            # echo '<map type="binfile" data="maps/BFR.bin" />' > maps/BFR.xml
-            # wget -c -O maps/BFR.bin https://3572-34103839-gh.circle-artifacts.com/0/root/project/BFR.bin
-            echo '<map type="binfile" data="maps/europe.bin" />' > maps/europe.xml
+              echo '<map type="binfile" data="maps/BFR.bin" />' > maps/BFR.xml
+              wget -c -O maps/BFR.bin https://3572-34103839-gh.circle-artifacts.com/0/root/project/BFR.bin
+            # echo '<map type="binfile" data="maps/europe.bin" />' > maps/europe.xml
             # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-5.4,41.2,19.3,55.5.bin
-            wget -c O maps/europe.bin http://maps.navit-project.org/api/map/osm_bbox_-5.4,41.2,14.2,53.3.bin
+            # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/osm_bbox_-5.4,41.2,14.2,53.3.bin
       - run:
           name: Running X virtual framebuffer
           command: |
