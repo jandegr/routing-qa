@@ -79,7 +79,9 @@ jobs:
            python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
       - run:
          name: Stop Navit
-         command: dbus-send  --print-reply --session --dest=org.navit_project.navit /org/navit_project/navit/default_navit org.navit_project.navit.navit.quit
+         command: |
+           export DISPLAY=:99
+           dbus-send  --print-reply --session --dest=org.navit_project.navit /org/navit_project/navit/default_navit org.navit_project.navit.navit.quit
 workflows:
   version: 2
   build_all:
