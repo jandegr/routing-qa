@@ -14,7 +14,7 @@ jobs:
           name: Setup requirements
           command: |
             apt-get update
-            apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev librsvg2-bin wget
+            apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev librsvg2-bin wget xvfb
             apt-get install -y python-yaml python.junitxml
       - run:
           name: Build for Linux
@@ -57,7 +57,7 @@ jobs:
          command: |
            mkdir $CIRCLE_ARTIFACTS/logs
            cd navit/bin/navit
-           ./navit
+           xvfb-run ./navit
            cat $CIRCLE_ARTIFACTS/logs/stdout.txt
            cat $CIRCLE_ARTIFACTS/logs/stderr.txt
            ls -la $CIRCLE_ARTIFACTS/logs
