@@ -40,7 +40,7 @@ jobs:
             sed -i -e 's@type="internal" enabled@type="internal" fullscreen="1" font_size="350" enabled@' navit.xml
             sed -i -e 's@libbinding_dbus.so" active="no"@libbinding_dbus.so" active="yes"@' navit.xml
             sed -i -e 's@name="Car" nightlayout="Car-dark"@name="Car"@' navit.xml  
-            sed -i -e 's@name="global" dbg_level="error"@name="global" dbg_level="debug"@' navit.xml  
+            # sed -i -e 's@name="global" dbg_level="error"@name="global" dbg_level="debug"@' navit.xml  
       - run:
           name: Navit xml
           command: |
@@ -58,9 +58,7 @@ jobs:
            mkdir $CIRCLE_ARTIFACTS/logs
            cd navit/bin/navit
            xvfb-run ./navit
-           cat $CIRCLE_ARTIFACTS/logs/stdout.txt
-           cat $CIRCLE_ARTIFACTS/logs/stderr.txt
-           ls -la $CIRCLE_ARTIFACTS/logs
+         background: true  
       - run:
          name: Perform tests
          command: python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
