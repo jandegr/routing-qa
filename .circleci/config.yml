@@ -78,7 +78,10 @@ jobs:
          command: |
            sleep 5
            export DISPLAY=:99
-           python test.py $CIRCLE_ARTIFACTS/ $CIRCLE_TEST_REPORTS/ "metric"
+           python test.py png/ $CIRCLE_TEST_REPORTS/ "metric"
+      - store_artifacts:
+          name: Store PNG
+          path: png
       - run:
          name: Stop Navit
          command: |
