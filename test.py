@@ -103,5 +103,5 @@ for filename in glob.glob('*.yaml'):
 
 ts = [TestSuite("Navit routing tests", tests)]
 
-with open(junit_directory+'output.xml', 'w+') as f:
-    TestSuite.to_file(f, ts, prettyprint=False)
+#with open(junit_directory+'output.xml', 'w+') as f:
+#    TestSuite.to_file(f, ts, prettyprint=False)
