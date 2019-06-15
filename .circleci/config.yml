@@ -56,9 +56,9 @@ jobs:
       - run:
          name: Start Navit
          command: |
-           mkdir $CIRCLE_ARTIFACTS/logs
            cd navit/bin/navit
-           xvfb-run ./navit
+           # xvfb-run ./navit
+           ./navit
          background: true  
       - run:
          name: Perform tests
