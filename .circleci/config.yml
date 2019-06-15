@@ -55,8 +55,9 @@ jobs:
             wget -c -O maps/BFR.bin https://3572-34103839-gh.circle-artifacts.com/0/root/project/BFR.bin
       - run:
           name: Running X virtual framebuffer
-          command: Xvfb -ac :99 -screen 0 1280x1024x16
-          export DISPLAY=:99
+          command: |
+            Xvfb -ac :99 -screen 0 1280x1024x16
+            export DISPLAY=:99
           background: true
       - run:
          name: Start Navit
