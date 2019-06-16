@@ -1,11 +1,11 @@
 # https://github.com/navit-gps/navit/issues/795
 #
 from:
-  lat: 50.97626
-  lng: 3.52695
+  lat: 48.15120
+  lng: 11.99160
 to:
-  lat: 50.98038
-  lng: 3.53380
+  lat: 48.14939
+  lng: 11.52035
 
 success:
     source: 'dbus'
