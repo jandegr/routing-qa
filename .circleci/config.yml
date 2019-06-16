@@ -63,7 +63,7 @@ jobs:
             # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-5.4,41.2,19.3,55.5.bin
             # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/osm_bbox_-5.4,41.2,14.2,53.3.bin
             # the predefined area for Bayern on the mapserver
-            wget -c O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
+            wget -O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
       - run:
           name: Running X virtual framebuffer
           command: |
