@@ -15,7 +15,7 @@ jobs:
           command: |
             apt-get update
             apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev librsvg2-bin wget xvfb
-            # for the import of the screenshot command
+            # imagemagick provides /usr/bin/import used for the screenshots
             apt-get install -y imagemagick
             apt-get install -y dbus dbus-x11 python-yaml python-junit.xml python-dbus python-lxml python-gobject
       - run:
@@ -53,7 +53,7 @@ jobs:
             cd navit/bin/navit
             cat navit.xml
       - run:
-          name: get map BFR
+          name: get maps
           command: |
             cd navit/bin/navit
             # mkdir maps
@@ -61,9 +61,10 @@ jobs:
             #  wget -c -O maps/BFR.bin https://3572-34103839-gh.circle-artifacts.com/0/root/project/BFR.bin
             echo '<map type="binfile" data="maps/europe.bin" />' > maps/europe.xml
             # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-5.4,41.2,19.3,55.5.bin
-            # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/osm_bbox_-5.4,41.2,14.2,53.3.bin
+            # large part of europe (FR, BE, NL, DE, CH, AT)
+            wget -O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-7.0,40.9,17.0,59.5.bin
             # the predefined area for Bayern on the mapserver
-            wget -O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
+            # wget -O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
       - run:
           name: Running X virtual framebuffer
           command: |
