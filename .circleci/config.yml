@@ -24,7 +24,7 @@ jobs:
             git clone https://github.com/jandegr/navit.git
             cd navit
             git branch -a
-            git checkout trunk
+            git checkout issue_795
             ls -la
             mkdir bin
             cd bin
