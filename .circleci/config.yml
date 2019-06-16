@@ -26,8 +26,8 @@ jobs:
             cd navit
             git branch -a
             # git checkout trunk
-            # 18 02 2017
-            git checkout bf29a64
+            # 27 01 2017
+            git checkout aedbf21
             ls -la
             mkdir bin
             cd bin
