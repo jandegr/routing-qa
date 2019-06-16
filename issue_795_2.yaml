@@ -1,0 +1,14 @@
+# https://github.com/navit-gps/navit/issues/795
+#
+from:
+  lat: 48.15078
+  lng: 11.52017
+to:
+  lat: 48.14939
+  lng: 11.52035
+
+success:
+    source: 'dbus'
+    item: 'status'
+    value: 33
+operator: '=='
