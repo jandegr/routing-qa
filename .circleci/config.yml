@@ -62,7 +62,7 @@ jobs:
             echo '<map type="binfile" data="maps/planet.bin" />' > maps/planet.xml
             # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-5.4,41.2,19.3,55.5.bin
             # large part of europe (FR, BE, NL, DE, CH, AT)
-            wget -O maps/planet.bin http://maps.navit-project.org/api/map/planet-190617.bin
+            wget -O maps/planet.bin http://maps.navit-project.org/planet-190617.bin
             # the predefined area for Bayern on the mapserver
             # wget -O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
           no_output_timeout: 120m
