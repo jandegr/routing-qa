@@ -1,0 +1,91 @@
+version: 2
+defaults: &defaults
+  docker:
+    - image: ubuntu:19.04
+jobs:
+  build_linux_and_test:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Id
+          command: cat /etc/*release
+      - run:
+          name: Setup requirements
+          command: |
+            apt-get update
+            apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev librsvg2-bin wget xvfb
+            # imagemagick provides /usr/bin/import used for the screenshots
+            apt-get install -y imagemagick
+            apt-get install -y dbus dbus-x11 python-yaml python-junit.xml python-dbus python-lxml python-gobject python-requests
+      - run:
+          name: Build for Linux
+          command: |
+            git clone https://github.com/navit-gps/navit.git
+            cd navit
+            # git checkout ed5477d -> works see https://circleci.com/gh/jandegr/routing-qa/538
+            # git checkout 9bf8163 -> works see https://circleci.com/gh/jandegr/routing-qa/542
+            # git checkout af9ec70 -> works see https://circleci.com/gh/jandegr/routing-qa/560
+            # git checkout bbff868 -> fails see https://circleci.com/gh/jandegr/routing-qa/539
+            mkdir bin
+            cd bin
+            cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
+            make -j2
+      - run:
+          name: Prepare Navit for tests
+          command: |
+            cd navit/bin/navit
+            ls -la
+            sed -i -e 's@name="Local GPS" profilename="car" enabled="yes" active="1"@name="Local GPS" profilename="car" enabled="no" active="0"@' navit.xml
+            sed -i -e 's@name="Demo" profilename="car" enabled="no" active="yes"@name="Demo" profilename="car" enabled="yes" active="yes" refresh="1"@' navit.xml
+            sed -i -e 's@type="internal" enabled@type="internal" fullscreen="1" font_size="350" enabled@' navit.xml
+            sed -i -e 's@libbinding_dbus.so" active="no"@libbinding_dbus.so" active="yes"@' navit.xml
+            sed -i -e 's@name="Car" nightlayout="Car-dark"@name="Car"@' navit.xml  
+            # sed -i -e 's@name="global" dbg_level="error"@name="global" dbg_level="debug"@' navit.xml
+            echo 'navit.mapset.map[@description=="Navigation"].active=1;' > gui_internal.txt
+      - run:
+          name: Launch dbus
+          command: /usr/bin/dbus-launch
+      - run:
+          name: Navit xml
+          command: |
+            cd navit/bin/navit
+            cat navit.xml
+      - run:
+          name: get maps
+          command: |
+            python map.py
+            cd navit/bin/navit
+            echo '<map type="binfile" data="maps/custommap.bin" />' > maps/custommap.xml
+      - run:
+          name: Running X virtual framebuffer
+          command: |
+            Xvfb -ac :99 -screen 0 1600x1200x16
+          background: true
+      - run:
+          name: Start Navit
+          command: |
+            export DISPLAY=:99
+            sleep 3
+            cd navit/bin/navit
+            ./navit
+          background: true  
+      - run:
+          name: Perform tests
+          command: |
+            sleep 4
+            export DISPLAY=:99
+            python test.py /root/project/png/ $CIRCLE_TEST_REPORTS/ "metric"
+      - store_artifacts:
+          name: Store PNG
+          path: png
+      - run:
+          name: Stop Navit
+          command: |
+            export DISPLAY=:99
+            dbus-send  --print-reply --session --dest=org.navit_project.navit /org/navit_project/navit/default_navit org.navit_project.navit.navit.quit
+workflows:
+  version: 2
+  build_all:
+    jobs:
+      - build_linux_and_test
