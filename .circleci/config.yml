@@ -53,39 +53,28 @@ jobs:
             cd navit/bin/navit
             cat navit.xml
       - run:
-          name: Running X virtual framebuffer
-          command: |
-            Xvfb -ac :99 -screen 0 1600x1200x16
-          background: true
-      - run:
           name: get maps
           command: |
             python map.py
             cd navit/bin/navit
-            # mkdir maps
-            #  echo '<map type="binfile" data="maps/BFR.bin" />' > maps/BFR.xml
-            #  wget -c -O maps/BFR.bin https://3572-34103839-gh.circle-artifacts.com/0/root/project/BFR.bin
             echo '<map type="binfile" data="maps/custommap.bin" />' > maps/custommap.xml
-            # wget -c O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-5.4,41.2,19.3,55.5.bin
-            # large part of europe (FR, BE, NL, DE, CH, AT)
-            # wget -O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-7.0,40.9,24.5,59.5.bin
-            # the predefined area for Bayern on the mapserver
-            # wget -O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
-            
+      - run:
+          name: Running X virtual framebuffer
+          command: |
+            Xvfb -ac :99 -screen 0 1600x1200x16
+          background: true
       - run:
          name: Start Navit
          command: |
            export DISPLAY=:99
            sleep 3
            cd navit/bin/navit
-           #Xvfb
-           #xvfb-run ./navit
            ./navit
          background: true  
       - run:
          name: Perform tests
          command: |
-           sleep 5
+           sleep 4
            export DISPLAY=:99
            python test.py /root/project/png/ $CIRCLE_TEST_REPORTS/ "metric"
       - store_artifacts:
