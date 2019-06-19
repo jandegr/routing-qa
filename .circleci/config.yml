@@ -1,9 +1,9 @@
 version: 2
 defaults: &defaults
   docker:
-    - image: ubuntu:18.04
+    - image: ubuntu:19.04
 jobs:
-  build_linux:
+  build_linux_and_test:
     <<: *defaults
     steps:
       - checkout
@@ -25,7 +25,7 @@ jobs:
             cd navit
             # git checkout ed5477d -> works see https://circleci.com/gh/jandegr/routing-qa/538
             # git checkout 9bf8163 -> works see https://circleci.com/gh/jandegr/routing-qa/542
-            git checkout af9ec70
+            # git checkout af9ec70 -> works see https://circleci.com/gh/jandegr/routing-qa/560
             # git checkout bbff868 -> fails see https://circleci.com/gh/jandegr/routing-qa/539
             mkdir bin
             cd bin
@@ -63,29 +63,29 @@ jobs:
             Xvfb -ac :99 -screen 0 1600x1200x16
           background: true
       - run:
-         name: Start Navit
-         command: |
-           export DISPLAY=:99
-           sleep 3
-           cd navit/bin/navit
-           ./navit
-         background: true  
+          name: Start Navit
+          command: |
+            export DISPLAY=:99
+            sleep 3
+            cd navit/bin/navit
+            ./navit
+          background: true  
       - run:
-         name: Perform tests
-         command: |
-           sleep 4
-           export DISPLAY=:99
-           python test.py /root/project/png/ $CIRCLE_TEST_REPORTS/ "metric"
+          name: Perform tests
+          command: |
+            sleep 4
+            export DISPLAY=:99
+            python test.py /root/project/png/ $CIRCLE_TEST_REPORTS/ "metric"
       - store_artifacts:
           name: Store PNG
           path: png
       - run:
-         name: Stop Navit
-         command: |
-           export DISPLAY=:99
-           dbus-send  --print-reply --session --dest=org.navit_project.navit /org/navit_project/navit/default_navit org.navit_project.navit.navit.quit
+          name: Stop Navit
+          command: |
+            export DISPLAY=:99
+            dbus-send  --print-reply --session --dest=org.navit_project.navit /org/navit_project/navit/default_navit org.navit_project.navit.navit.quit
 workflows:
   version: 2
   build_all:
     jobs:
-      - build_linux
+      - build_linux_and_test
