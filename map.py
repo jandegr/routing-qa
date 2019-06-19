@@ -79,6 +79,7 @@ mapbottom = round(mapbottom - 0.15 , 1)
 mapleft = round(mapleft - 0.15 , 1)
 maptop = round(maptop + 0.15 , 1)
 mapright = round(mapright + 0.15 , 1)
+print("")
 print("after rounding")
 print ("mapbottom = " + str(mapbottom) + " mapleft = " + str(mapleft) +" maptop = " + str(maptop) + " mapright = " + str(mapright))
 url = "http://maps.navit-project.org/api/map/?bbox=" + str(mapleft) + "," + str(mapbottom) + "," + str(mapright) + "," + str(maptop) + ".bin"
