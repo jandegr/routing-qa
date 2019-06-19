@@ -14,6 +14,7 @@ def download(url, filename):
         total = response.headers.get('content-length')
         sys.stdout.write('binfile size = ')
         sys.stdout.write(total)
+        sys.stdout.write('\n')
         if total is None:
             f.write(response.content)
         else:
