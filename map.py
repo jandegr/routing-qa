@@ -51,7 +51,7 @@ for filename in glob.glob('*.yaml'):
             mapright = right
             print ("expanded right")
     print ("mapbottom = " + str(mapbottom) + " mapleft = " + str(mapleft) +" maptop = " + str(maptop) + " mapright = " + str(mapright))
-url = "http://maps.navit-project.org/api/map/?bbox=" + str('mapleft') + "," + str('mapbottom') + "," + str('mapright') + "," + str('maptop') + ".bin"
+url = "http://maps.navit-project.org/api/map/?bbox=" + str(mapleft) + "," + str(mapbottom) + "," + str(mapright) + "," + str(maptop) + ".bin"
 print ("url = ")
 print (url)
-wget.download(url, 'maps/custommap.bin')  
+wget.download(url, 'navit/bin/navit/maps/custommap.bin')  
