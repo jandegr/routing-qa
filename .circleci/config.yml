@@ -23,6 +23,7 @@ jobs:
           command: |
             git clone https://github.com/navit-gps/navit.git
             cd navit
+            git checkout af9ec70
             # git checkout ed5477d -> works see https://circleci.com/gh/jandegr/routing-qa/538
             # git checkout 9bf8163 -> works see https://circleci.com/gh/jandegr/routing-qa/542
             # git checkout af9ec70 -> works see https://circleci.com/gh/jandegr/routing-qa/560
