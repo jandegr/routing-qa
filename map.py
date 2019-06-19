@@ -4,8 +4,9 @@ import time
 import lxml.etree
 import sys
 import os
-from subprocess import call
-# from junit_xml import TestSuite, TestCase
+import wget
+
+
 
 
 tests=[]
@@ -52,4 +53,4 @@ for filename in glob.glob('*.yaml'):
 url = "http://maps.navit-project.org/api/map/?bbox=" + str(mapleft) + "," + str(mapbottom) + "," + str(mapright) + "," + str(maptop) + ".bin"
 print ("url = ")
 print (url)
- 
+wget.download(url, 'maps/custommap.bin')  
