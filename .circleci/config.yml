@@ -1,7 +1,7 @@
 version: 2
 defaults: &defaults
   docker:
-    - image: ubuntu:18.04
+    - image: ubuntu:19.04
 jobs:
   build_linux_and_test:
     <<: *defaults
@@ -15,8 +15,6 @@ jobs:
           command: |
             apt-get update
             apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev librsvg2-bin wget xvfb
-            # install git to replace git provided by circleci to try not to get a broken binary
-            apt-get install -y git
             # imagemagick provides /usr/bin/import used for the screenshots
             apt-get install -y imagemagick
             apt-get install -y dbus dbus-x11 python-yaml python-junit.xml python-dbus python-lxml python-gobject python-requests
@@ -25,7 +23,7 @@ jobs:
           command: |
             git clone https://github.com/navit-gps/navit.git
             cd navit
-            # git checkout af9ec70
+            git checkout af9ec70
             # git checkout ed5477d -> works see https://circleci.com/gh/jandegr/routing-qa/538
             # git checkout 9bf8163 -> works see https://circleci.com/gh/jandegr/routing-qa/542
             # git checkout af9ec70 -> works see https://circleci.com/gh/jandegr/routing-qa/560
