@@ -21,17 +21,13 @@ jobs:
       - run:
           name: Build for Linux
           command: |
-            git clone https://github.com/jandegr/navit.git
+            git clone https://github.com/navit-gps/navit.git
             cd navit
             git branch -a
-            git checkout trunk
-            ls -la
             mkdir bin
             cd bin
             cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
             make -j2
-            ls -la
-            ls -la navit   
       - run:
           name: Prepare Navit for tests
           command: |
