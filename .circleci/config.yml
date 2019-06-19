@@ -21,8 +21,9 @@ jobs:
       - run:
           name: Build for Linux
           command: |
-            git clone https://github.com/navit-gps/navit.git
+            git clone https://github.com/jandegr/navit.git
             cd navit
+            git checkout trunk
             mkdir bin
             cd bin
             cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
