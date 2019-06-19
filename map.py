@@ -1,3 +1,4 @@
+#! python3
 import glob
 import yaml
 import time
