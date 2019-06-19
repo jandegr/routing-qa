@@ -23,7 +23,7 @@ def download(url, filename):
                 downloaded += len(data)
                 f.write(data)
                 pct = 100 * downloaded / total
-                sys.stdout.write(pct)
+                sys.stdout.write(str(pct))
                 sys.stdout.write(' %\n')
 #                done = int(50*downloaded/total)
 #                sys.stdout.write('\r[{}{}]'.format('X' * done, '.' * (50-done)))
