@@ -23,8 +23,8 @@ jobs:
           command: |
             git clone https://github.com/navit-gps/navit.git
             cd navit
-            # git checkout ed5477d -> works, see CI 538
-            git checkout bbff868
+            git checkout ed5477d -> works, see CI 538 on 18 , testing on 19
+            # git checkout bbff868 -> fails, see https://circleci.com/gh/jandegr/routing-qa/540
             mkdir bin
             cd bin
             cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
