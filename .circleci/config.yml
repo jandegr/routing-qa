@@ -53,8 +53,14 @@ jobs:
             cd navit/bin/navit
             cat navit.xml
       - run:
+          name: Running X virtual framebuffer
+          command: |
+            Xvfb -ac :99 -screen 0 1600x1200x16
+          background: true
+      - run:
           name: get maps
           command: |
+            export DISPLAY=:99
             cd navit/bin/navit
             # mkdir maps
             #  echo '<map type="binfile" data="maps/BFR.bin" />' > maps/BFR.xml
@@ -66,11 +72,6 @@ jobs:
             # the predefined area for Bayern on the mapserver
             # wget -O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
             python ../../../map.py
-      - run:
-          name: Running X virtual framebuffer
-          command: |
-            Xvfb -ac :99 -screen 0 1600x1200x16
-          background: true
       - run:
          name: Start Navit
          command: |
