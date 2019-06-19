@@ -22,9 +22,12 @@ def download(url, filename):
             for data in response.iter_content(chunk_size=max(int(total/1000), 1024*1024)):
                 downloaded += len(data)
                 f.write(data)
-                done = int(50*downloaded/total)
-                sys.stdout.write('\n[{}{}]'.format('X' * done, '.' * (50-done)))
-                sys.stdout.flush()
+                pct = 100 * downloaded / total
+                sys.stdout.write(pct)
+                sys.stdout.write(' %\n')
+#                done = int(50*downloaded/total)
+#                sys.stdout.write('\r[{}{}]'.format('X' * done, '.' * (50-done)))
+#                sys.stdout.flush()
     sys.stdout.write('\n')
 
 
