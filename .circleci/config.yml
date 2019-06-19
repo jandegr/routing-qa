@@ -53,6 +53,9 @@ jobs:
             cd navit/bin/navit
             cat navit.xml
       - run:
+         name: Get custom map
+         command: python map.py
+      - run:
           name: get maps
           command: |
             cd navit/bin/navit
