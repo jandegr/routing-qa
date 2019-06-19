@@ -23,7 +23,8 @@ jobs:
           command: |
             git clone https://github.com/navit-gps/navit.git
             cd navit
-            git checkout ed5477d
+            # git checkout ed5477d -> works, see CI 538
+            git checkout bbff868
             mkdir bin
             cd bin
             cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
