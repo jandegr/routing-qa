@@ -23,7 +23,6 @@ jobs:
           command: |
             git clone https://github.com/navit-gps/navit.git
             cd navit
-            git branch -a
             mkdir bin
             cd bin
             cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
