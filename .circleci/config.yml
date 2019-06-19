@@ -17,7 +17,7 @@ jobs:
             apt-get install -y git cmake libpng-dev libfreetype6-dev libdbus-glib-1-dev libgtk2.0-dev curl libdbus-glib-1-dev librsvg2-bin wget xvfb
             # imagemagick provides /usr/bin/import used for the screenshots
             apt-get install -y imagemagick
-            apt-get install -y dbus dbus-x11 python-yaml python-junit.xml python-dbus python-lxml python-gobject
+            apt-get install -y dbus dbus-x11 python-yaml python-junit.xml python-dbus python-lxml python-gobject python-wget
       - run:
           name: Build for Linux
           command: |
@@ -65,7 +65,7 @@ jobs:
             # wget -O maps/europe.bin http://maps.navit-project.org/api/map/?bbox=-7.0,40.9,24.5,59.5.bin
             # the predefined area for Bayern on the mapserver
             # wget -O maps/europe.bin http://maps.navit-project.org/?bbox=8.9,47.2,13.9,50.6.bin
-            python map.py
+            python ../../../map.py
       - run:
           name: Running X virtual framebuffer
           command: |
