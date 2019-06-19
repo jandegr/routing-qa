@@ -12,7 +12,8 @@ def download(url, filename):
     with open(filename, 'wb') as f:
         response = requests.get(url, stream=True)
         total = response.headers.get('content-length')
-
+        sys.stdout.write('binfile size = ')
+        sys.stdout.write(total)
         if total is None:
             f.write(response.content)
         else:
@@ -22,7 +23,7 @@ def download(url, filename):
                 downloaded += len(data)
                 f.write(data)
                 done = int(50*downloaded/total)
-                sys.stdout.write('\r[{}{}]'.format('X' * done, '.' * (50-done)))
+                sys.stdout.write('\n[{}{}]'.format('X' * done, '.' * (50-done)))
                 sys.stdout.flush()
     sys.stdout.write('\n')
 
