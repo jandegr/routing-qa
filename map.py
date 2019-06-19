@@ -38,6 +38,7 @@ for filename in glob.glob('*.yaml'):
     f = open(filename)
     dataMap = yaml.safe_load(f)
     f.close()
+    print ("")
     print ("Reading "+filename+" : "+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +" to "+str(dataMap['to']['lat']) + "," + str(dataMap['to']['lng']))
     bottom = dataMap['from']['lat']
     left = dataMap['from']['lng']
@@ -73,6 +74,12 @@ for filename in glob.glob('*.yaml'):
             mapright = right
             print ("expanded right")
     print ("mapbottom = " + str(mapbottom) + " mapleft = " + str(mapleft) +" maptop = " + str(maptop) + " mapright = " + str(mapright))
+mapbottom = round(mapbottom - 0.15 , 1)
+mapleft = round(mapleft - 0.15 , 1)
+maptop = round(maptop + 0.15 , 1)
+mapright = round(mapright + 0.15 , 1)
+print("after rounding")
+print ("mapbottom = " + str(mapbottom) + " mapleft = " + str(mapleft) +" maptop = " + str(maptop) + " mapright = " + str(mapright))
 url = "http://maps.navit-project.org/api/map/?bbox=" + str(mapleft) + "," + str(mapbottom) + "," + str(mapright) + "," + str(maptop) + ".bin"
 print ("url = ")
 print (url)
