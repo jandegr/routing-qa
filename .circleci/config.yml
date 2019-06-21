@@ -23,7 +23,6 @@ jobs:
           command: |
             git clone https://github.com/navit-gps/navit.git
             cd navit
-            git checkout b2205d3
             # git checkout ed5477d -> works see https://circleci.com/gh/jandegr/routing-qa/538
             # git checkout 9bf8163 -> works see https://circleci.com/gh/jandegr/routing-qa/542
             # git checkout af9ec70 (a commit of may 19) -> works see https://circleci.com/gh/jandegr/routing-qa/560
@@ -37,6 +36,8 @@ jobs:
           name: Prepare Navit for tests
           command: |
             cd navit/bin/navit
+            # workaround for commit bbff868
+            touch version.h
             ls -la
             sed -i -e 's@name="Local GPS" profilename="car" enabled="yes" active="1"@name="Local GPS" profilename="car" enabled="no" active="0"@' navit.xml
             sed -i -e 's@name="Demo" profilename="car" enabled="no" active="yes"@name="Demo" profilename="car" enabled="yes" active="yes" refresh="1"@' navit.xml
