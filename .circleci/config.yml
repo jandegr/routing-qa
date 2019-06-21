@@ -23,11 +23,12 @@ jobs:
           command: |
             git clone https://github.com/navit-gps/navit.git
             cd navit
-            git checkout af9ec70
+            git checkout b2205d3
             # git checkout ed5477d -> works see https://circleci.com/gh/jandegr/routing-qa/538
             # git checkout 9bf8163 -> works see https://circleci.com/gh/jandegr/routing-qa/542
-            # git checkout af9ec70 -> works see https://circleci.com/gh/jandegr/routing-qa/560
-            # git checkout bbff868 -> fails see https://circleci.com/gh/jandegr/routing-qa/539
+            # git checkout af9ec70 (a commit of may 19) -> works see https://circleci.com/gh/jandegr/routing-qa/560
+            # git checkout b2205d3 (a commit of may 20) -> works see https://circleci.com/gh/jandegr/routing-qa/578
+            # git checkout bbff868 (a commit of may 24) -> fails see https://circleci.com/gh/jandegr/routing-qa/539
             mkdir bin
             cd bin
             cmake ../ -DBUILD_MAPTOOL=n -DSAMPLE_MAP=n
