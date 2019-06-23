@@ -11,4 +11,4 @@ success:
     source: 'dbus'
     item: 'status'
     value: 33
-    operator: '=='
+    operator: '='
