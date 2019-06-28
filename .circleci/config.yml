@@ -56,7 +56,7 @@ jobs:
             cd navit/bin/navit
             cat navit.xml
       - run:
-          name: get maps
+          name: determine bbox and get map from the Navit mapserver
           command: |
             python map.py
             cd navit/bin/navit
@@ -83,6 +83,9 @@ jobs:
       - store_artifacts:
           name: Store PNG
           path: png
+      - store_test_results:
+          name: Store test results
+          path: tests
       - run:
           name: Stop Navit
           command: |
