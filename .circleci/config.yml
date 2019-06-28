@@ -40,8 +40,9 @@ jobs:
             touch version.h
             ls -la
             sed -i -e 's@name="Local GPS" profilename="car" enabled="yes" active="1"@name="Local GPS" profilename="car" enabled="no" active="0"@' navit.xml
-            sed -i -e 's@name="Demo" profilename="car" enabled="no" active="yes"@name="Demo" profilename="car" enabled="yes" active="yes" refresh="1"@' navit.xml
-            sed -i -e 's@type="internal" enabled@type="internal" fullscreen="1" font_size="350" enabled@' navit.xml
+            sed -i -e 's@name="Demo" profilename="car" enabled="no"@name="Demo" profilename="car" enabled="yes" active="yes" refresh="1"@' navit.xml
+            # sed -i -e 's@type="internal" enabled@type="internal" fullscreen="1" font_size="350" enabled@' navit.xml
+            sed -i -e 's@type="gtk_drawing_area"@type="gtk_drawing_area" w="1280" h="1024"@' navit.xml
             sed -i -e 's@libbinding_dbus.so" active="no"@libbinding_dbus.so" active="yes"@' navit.xml
             sed -i -e 's@name="Car" nightlayout="Car-dark"@name="Car"@' navit.xml  
             # sed -i -e 's@name="global" dbg_level="error"@name="global" dbg_level="debug"@' navit.xml
@@ -63,7 +64,7 @@ jobs:
       - run:
           name: Running X virtual framebuffer
           command: |
-            Xvfb -ac :99 -screen 0 1600x1200x16
+            Xvfb -ac :99 -screen 0 1280x1024x16
           background: true
       - run:
           name: Start Navit
