@@ -79,7 +79,7 @@ jobs:
           command: |
             sleep 4
             export DISPLAY=:99
-            python test.py /root/project/png/ $CIRCLE_TEST_REPORTS/ "metric"
+            python test.py /root/project/png/ /root/project/tests/junit/ "metric"
       - store_artifacts:
           name: Store PNG
           path: png
