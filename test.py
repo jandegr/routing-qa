@@ -78,13 +78,13 @@ for filename in glob.glob('*.yaml'):
             navit.export_as_gpx(gpx_directory+"/"+filename + export_suffix + ".gpx")
             navit.export_as_geojson(gpx_directory+"/"+filename + export_suffix + ".geojson")
             if 'capture' in dataMap:
-               if 'zoom_level' in dataMap['capture']:
-                 print ("Forcing zoom to "+str(dataMap['capture']['zoom_level']))
-                 iface2 = dbus.Interface(navit_object, dbus_interface="org.navit_project.navit.navit")
-                 iface2.set_attr("zoom", dataMap['capture']['zoom_level'])
-               if 'lng' in dataMap['capture']:
-                 print ("Setting the view center to "+str(dataMap['capture']['lng']) + "," + str(dataMap['capture']['lat']))
-                 navit.set_center_by_string("geo: "+str(dataMap['capture']['lng']) + " " + str(dataMap['capture']['lat']))
+                if 'zoom_level' in dataMap['capture']:
+                    print ("Forcing zoom to "+str(dataMap['capture']['zoom_level']))
+                    iface2 = dbus.Interface(navit_object, dbus_interface="org.navit_project.navit.navit")
+                    iface2.set_attr("zoom", dataMap['capture']['zoom_level'])
+                if 'lng' in dataMap['capture']:
+                    print ("Setting the view center to "+str(dataMap['capture']['lng']) + "," + str(dataMap['capture']['lat']))
+                    navit.set_center_by_string("geo: "+str(dataMap['capture']['lng']) + " " + str(dataMap['capture']['lat']))
             else:
                 navit.zoom_to_route()
             os.system("import -window root "+gpx_directory+"/"+filename+export_suffix + ".png")
@@ -92,7 +92,7 @@ for filename in glob.glob('*.yaml'):
             print ("No route found, last status : " + str(status) + ", duration : "+str(time.time() - start_time))
 
         test_cases = TestCase(filename, '', time.time() - start_time, '', '')
-        print("test for " + dataMap['success']['operator'])
+        print("test for " + dataMap['success']['source'])
         if dataMap['success']['source'] == 'gpx' :
             doc = lxml.etree.parse(gpx_directory+"/"+filename+export_suffix + ".gpx")
             rtept_count = doc.xpath('count(//rtept)')
