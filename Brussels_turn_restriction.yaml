@@ -6,7 +6,7 @@ to:
   lat: 50.850022
   lng: 4.371804
 success:
-    source: 'dbus'
-    item: 'status'
-    value: 33
-    operator: '='
+  source: 'dbus'
+  item: 'status'
+  value: 33
+  operator: '=='
