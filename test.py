@@ -1,3 +1,4 @@
+#! python3
 import glob
 import yaml
 import dbus
@@ -44,10 +45,10 @@ for filename in glob.glob('*.yaml'):
     f = open(filename)
     dataMap = yaml.safe_load(f)
     f.close()
-    print "Testing "+filename+" : "+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +" to "+str(dataMap['to']['lat']) + "," + str(dataMap['to']['lng'])
-    print "http://www.openstreetmap.org/directions?engine=osrm_car&route="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"%3B"+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng'])
-    print "https://graphhopper.com/maps/?point="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"&point="+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng'])
-    print "http://www.google.com/maps/dir/"+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +"/"+str(dataMap['to']['lat']) + ","+ str(dataMap['to']['lng'])
+    print ("Testing "+filename+" : "+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +" to "+str(dataMap['to']['lat']) + "," + str(dataMap['to']['lng']))
+    print ("http://www.openstreetmap.org/directions?engine=osrm_car&route="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"%3B"+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng']))
+    print ("https://graphhopper.com/maps/?point="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"&point="+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng']))
+    print ("http://www.google.com/maps/dir/"+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +"/"+str(dataMap['to']['lat']) + ","+ str(dataMap['to']['lng']))
     start_time = time.time()
     try:
         navit.clear_destination()
@@ -69,7 +70,7 @@ for filename in glob.glob('*.yaml'):
             status=route.get_attr("route_status")[1]
             distance=route.get_attr("destination_length")[1]
             if status == 33 :
-                print "Route status : "+str(status)+", distance : "+str(distance)+ ", duration : "+str(time.time() - start_time)
+                print ("Route status : "+str(status)+", distance : "+str(distance)+ ", duration : "+str(time.time() - start_time))
             else :
                 time.sleep(1)
             timeout-=1
@@ -78,17 +79,17 @@ for filename in glob.glob('*.yaml'):
             navit.export_as_geojson(gpx_directory+"/"+filename + export_suffix + ".geojson")
             if 'capture' in dataMap:
                if 'zoom_level' in dataMap['capture']:
-                 print "Forcing zoom to "+str(dataMap['capture']['zoom_level'])
+                 print ("Forcing zoom to "+str(dataMap['capture']['zoom_level']))
                  iface2 = dbus.Interface(navit_object, dbus_interface="org.navit_project.navit.navit")
                  iface2.set_attr("zoom", dataMap['capture']['zoom_level'])
                if 'lng' in dataMap['capture']:
-                 print "Setting the view center to "+str(dataMap['capture']['lng']) + "," + str(dataMap['capture']['lat'])
+                 print ("Setting the view center to "+str(dataMap['capture']['lng']) + "," + str(dataMap['capture']['lat']))
                  navit.set_center_by_string("geo: "+str(dataMap['capture']['lng']) + " " + str(dataMap['capture']['lat']))
             else:
                 navit.zoom_to_route()
             os.system("import -window root "+gpx_directory+"/"+filename+export_suffix + ".png")
         else:
-            print "No route found, last status : " + str(status) + ", duration : "+str(time.time() - start_time)
+            print ("No route found, last status : " + str(status) + ", duration : "+str(time.time() - start_time))
 
         test_cases = TestCase(filename, '', time.time() - start_time, '', '')
         if dataMap['success']['source'] == 'gpx' :
@@ -105,7 +106,7 @@ for filename in glob.glob('*.yaml'):
     except:
        # We had a failure, like navit crash, dbus timeout, ...
 
-       print "This test failed. Maybe a missing map?"
+       print ("This test failed. Maybe a missing map?")
        test_cases = TestCase(filename, '', time.time() - start_time, '', '')
        test_cases.add_error_info('test failed')
     tests.append(test_cases)
