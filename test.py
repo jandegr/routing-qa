@@ -92,16 +92,18 @@ for filename in glob.glob('*.yaml'):
             print ("No route found, last status : " + str(status) + ", duration : "+str(time.time() - start_time))
 
         test_cases = TestCase(filename, '', time.time() - start_time, '', '')
+        print("test for " + dataMap['success']['operator'])
         if dataMap['success']['source'] == 'gpx' :
             doc = lxml.etree.parse(gpx_directory+"/"+filename+export_suffix + ".gpx")
             rtept_count = doc.xpath('count(//rtept)')
-        
+            print("test for " + dataMap['success']['operator'])
             if not(eval(str(rtept_count) + dataMap['success']['operator'] + str(dataMap['success']['value']))):
                 test_cases.add_failure_info('navigation items count mismatch [ got ' + \
                     str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value']))
                 print ("navigation items count mismatch [ got " + \
                     str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value']))
         elif dataMap['success']['source'] == 'dbus' :
+            print("test for " + dataMap['success']['operator'])
             if not(eval(dataMap['success']['item'] + dataMap['success']['operator'] + str(dataMap['success']['value']))):
                 test_cases.add_failure_info('dbus result mismatch [ got ' + \
                     str(eval(str(dataMap['success']['item']))) + dataMap['success']['operator'] + str(dataMap['success']['value']))
