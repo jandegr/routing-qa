@@ -8,7 +8,7 @@ to:
   lng: 4.1664836
 
 success:
-    source: 'dbus'
-    item: 'status'
-    value: 33
-    operator: '='
+  source: 'dbus'
+  item: 'status'
+  value: 33
+  operator: '=='
