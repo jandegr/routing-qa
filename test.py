@@ -45,6 +45,7 @@ for filename in glob.glob('*.yaml'):
     f = open(filename)
     dataMap = yaml.safe_load(f)
     f.close()
+    print ("")
     print ("Testing "+filename+" : "+str(dataMap['from']['lat']) + "," + str(dataMap['from']['lng']) +" to "+str(dataMap['to']['lat']) + "," + str(dataMap['to']['lng']))
     print ("http://www.openstreetmap.org/directions?engine=osrm_car&route="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"%3B"+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng']))
     print ("https://graphhopper.com/maps/?point="+str(dataMap['from']['lat']) + "%2C" + str(dataMap['from']['lng']) +"&point="+str(dataMap['to']['lat']) + "%2C"+ str(dataMap['to']['lng']))
@@ -99,16 +100,16 @@ for filename in glob.glob('*.yaml'):
             print("test for " + dataMap['success']['operator'])
             if not(eval(str(rtept_count) + dataMap['success']['operator'] + str(dataMap['success']['value']))):
                 test_cases.add_failure_info('navigation items count mismatch [ got ' + \
-                    str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value']))
+                    str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value']) + ']')
                 print ("navigation items count mismatch [ got " + \
-                    str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value']))
+                    str(rtept_count) + ", expected " + dataMap['success']['operator'] + str(dataMap['success']['value']) +']')
         elif dataMap['success']['source'] == 'dbus' :
             print("test for " + dataMap['success']['operator'])
             if not(eval(dataMap['success']['item'] + dataMap['success']['operator'] + str(dataMap['success']['value']))):
                 test_cases.add_failure_info('dbus result mismatch [ got ' + \
-                    str(eval(str(dataMap['success']['item']))) + dataMap['success']['operator'] + str(dataMap['success']['value']))
+                    str(eval(str(dataMap['success']['item']))) + dataMap['success']['operator'] + str(dataMap['success']['value']) + ']')
                 print ("dbus result mismatch [ got " + \
-                    str(eval(str(dataMap['success']['item']))) + dataMap['success']['operator'] + str(dataMap['success']['value']))
+                    str(eval(str(dataMap['success']['item']))) + dataMap['success']['operator'] + str(dataMap['success']['value']) +']')
     except:
        # We had a failure, like navit crash, dbus timeout, ...
 
